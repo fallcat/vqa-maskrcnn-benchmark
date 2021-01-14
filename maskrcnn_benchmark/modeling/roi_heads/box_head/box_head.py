@@ -60,7 +60,8 @@ class ROIBoxHead(torch.nn.Module):
             class_logits, box_regression = self.predictor(x)
         if not self.training:
             result = self.post_processor((class_logits, box_regression), proposals)
-            print("proposals after", result["proposals"], flush=True)
+            print("result after", result, flush=True)
+            print("self.return_feats", self.return_feats)
             if self.return_feats:
                 return out_dict, result, {}
             else:
