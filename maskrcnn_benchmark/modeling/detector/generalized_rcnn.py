@@ -48,7 +48,7 @@ class GeneralizedRCNN(nn.Module):
             raise ValueError("In training mode, targets should be passed")
         images = to_image_list(images)
         features = self.backbone(images.tensors)
-        print("features", features["fc6"].shape, flush=True)
+        print("features", features, flush=True)
         if proposals is None:
             proposals, proposal_losses = self.rpn(images, features, targets)
         else:
