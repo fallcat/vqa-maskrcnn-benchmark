@@ -40,8 +40,10 @@ def build_roi_heads(cfg):
     # afterwards
     roi_heads = []
     if not cfg.MODEL.RPN_ONLY:
+        print("have box")
         roi_heads.append(("box", build_roi_box_head(cfg)))
     if cfg.MODEL.MASK_ON:
+        print("have mask")
         roi_heads.append(("mask", build_roi_mask_head(cfg)))
 
     # combine individual heads in a single module
