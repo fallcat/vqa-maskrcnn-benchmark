@@ -3,7 +3,7 @@ import torch
 
 from .box_head.box_head import build_roi_box_head
 from .mask_head.mask_head import build_roi_mask_head
-
+import pdb
 
 class CombinedROIHeads(torch.nn.ModuleDict):
     """
@@ -40,7 +40,8 @@ def build_roi_heads(cfg):
     # afterwards
     roi_heads = []
     if not cfg.MODEL.RPN_ONLY:
-        print("have box", flush=True)
+        print("have box1", flush=True)
+        pdb.set_trace()
         roi_heads.append(("box", build_roi_box_head(cfg)))
     if cfg.MODEL.MASK_ON:
         print("have mask", flush=True)
