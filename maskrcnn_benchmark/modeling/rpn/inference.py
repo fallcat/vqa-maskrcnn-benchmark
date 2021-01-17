@@ -134,6 +134,9 @@ class RPNPostProcessor(torch.nn.Module):
         print("anchors", len(anchors))
         print("objectness", len(objectness))
         print("box_regression", len(box_regression))
+        print("anchors[0]", len(anchors[0]))
+        print("objectness[0]", len(objectness[0]))
+        print("box_regression[0]", len(box_regression[0]))
         for a, o, b in zip(anchors, objectness, box_regression):
             sampled_boxes.append(self.forward_for_single_feature_map(a, o, b))
 
