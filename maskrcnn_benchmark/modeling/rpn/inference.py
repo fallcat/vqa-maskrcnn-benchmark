@@ -136,14 +136,14 @@ class RPNPostProcessor(torch.nn.Module):
 
         boxlists = list(zip(*sampled_boxes))
         boxlists = [cat_boxlist(boxlist) for boxlist in boxlists]
-
+        print("boxlists1", boxlists)
         if num_levels > 1:
             boxlists = self.select_over_all_levels(boxlists)
-
+        print("boxlists2", boxlists)
         # append ground-truth bboxes to proposals
         if self.training and targets is not None:
             boxlists = self.add_gt_proposals(boxlists, targets)
-
+        print("boxlists3", boxlists)
         return boxlists
 
     def select_over_all_levels(self, boxlists):
