@@ -139,7 +139,7 @@ class RPNPostProcessor(torch.nn.Module):
         print("box_regression[0]", len(box_regression[0]))
         for a, o, b in zip(anchors, objectness, box_regression):
             sampled_boxes.append(self.forward_for_single_feature_map(a, o, b))
-
+        print("sampled_boxes", sampled_boxes)
         boxlists = list(zip(*sampled_boxes))
         boxlists = [cat_boxlist(boxlist) for boxlist in boxlists]
         print("boxlists1", boxlists)
